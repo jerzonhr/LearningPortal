@@ -1,0 +1,27 @@
+@page "/tasks"
+
+<div class="row-layout tasks-container">
+    <IgbTabs class="tabs" tasks-scope>
+        <IgbTab Selected="true"></IgbTab>
+        <IgbTabPanel class="row-layout tab-item-content" tasks-scope>
+            <IgbExpansionPanel Open="true" class="expansion-panel" tasks-scope>
+                <p class="typography__body-2 text">
+                    Body 2
+                </p>
+                <span slot="title">Title goes here...</span>
+                <span slot="subtitle">Subtitle goes here...</span>
+            </IgbExpansionPanel>
+        </IgbTabPanel>
+        <IgbTab></IgbTab>
+        <IgbTabPanel class="row-layout tab-item-content_1" tasks-scope></IgbTabPanel>
+        <IgbTab></IgbTab>
+        <IgbTabPanel class="row-layout tab-item-content_1" tasks-scope></IgbTabPanel>
+        <IgbTab></IgbTab>
+        <IgbTabPanel class="row-layout tab-item-content_1" tasks-scope></IgbTabPanel>
+        <IgbTab></IgbTab>
+        <IgbTabPanel class="row-layout tab-item-content_1" tasks-scope></IgbTabPanel>
+    </IgbTabs>
+</div>
+
+@code {
+}

@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IgniteUI.Blazor" Version="24.2.71" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Shared/MainLayout.razor.css" CssScope="master_page-scope" />
+    <None Update="Pages/Dashboard.razor.css" CssScope="dashboard-scope" />
+    <None Update="Pages/Courses.razor.css" CssScope="courses-scope" />
+    <None Update="Pages/Progress.razor.css" CssScope="progress-scope" />
+    <None Update="Pages/Profile.razor.css" CssScope="profile-scope" />
+    <None Update="Pages/Tasks.razor.css" CssScope="tasks-scope" />
+  </ItemGroup>
+
+</Project>

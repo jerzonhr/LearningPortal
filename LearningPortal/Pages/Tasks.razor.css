@@ -1,0 +1,48 @@
+.row-layout {
+    display: flex;
+}
+.tasks-container {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    height: 100%;
+}
+.tabs {
+    min-width: 0;
+    min-height: 0;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.expansion-panel {
+    position: relative;
+    height: 674px;
+    min-width: 0;
+    min-height: 0;
+    max-height: 674px;
+    flex-grow: 1;
+    flex-basis: 0;
+}
+.tab-item-content {
+    justify-content: flex-end;
+    align-items: stretch;
+    align-content: flex-start;
+    overflow: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+.tab-item-content_1 {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    overflow: auto;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+.text {
+    height: max-content;
+    min-width: min-content;
+}

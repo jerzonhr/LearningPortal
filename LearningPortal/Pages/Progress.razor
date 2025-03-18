@@ -1,0 +1,59 @@
+@page "/progress"
+@using Northwind
+@using Models.Northwind
+@inject INorthwindService NorthwindService
+
+<div class="row-layout progress-container">
+    <IgbHierarchicalGrid Data="@_northwindOrders" PrimaryKey="OrderID" RowSelection="GridSelectionMode.Multiple" RowEditable="true" class="ig-typography hierarchical-grid" progress-scope>
+        <IgbGridToolbar>
+            <IgbGridToolbarActions>
+                <IgbGridToolbarAdvancedFiltering></IgbGridToolbarAdvancedFiltering>
+            </IgbGridToolbarActions>
+            <IgbGridToolbarTitle>Hierarchical Grid Toolbar</IgbGridToolbarTitle>
+        </IgbGridToolbar>
+        <IgbPaginator></IgbPaginator>
+        <IgbColumn Field="OrderID" DataType="GridColumnDataType.Number" Header="orderID" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbRowIsland ChildDataKey="Details" PrimaryKey="ProductID" AllowFiltering="true" FilterMode="FilterMode.ExcelStyleFilter">
+            <IgbColumn Field="ProductID" DataType="GridColumnDataType.Number" Header="productID" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="UnitPrice" DataType="GridColumnDataType.Number" Header="unitPrice" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Quantity" DataType="GridColumnDataType.Number" Header="quantity" Sortable="true" Selectable="false"></IgbColumn>
+            <IgbColumn Field="Discount" DataType="GridColumnDataType.Number" Header="discount" Sortable="true" Selectable="false"></IgbColumn>
+        </IgbRowIsland>
+        <IgbColumn Field="CustomerID" DataType="GridColumnDataType.String" Header="customerID" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="EmployeeID" DataType="GridColumnDataType.Number" Header="employeeID" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="OrderDate" DataType="GridColumnDataType.Date" Header="orderDate" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="RequiredDate" DataType="GridColumnDataType.Date" Header="requiredDate" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShippedDate" DataType="GridColumnDataType.Date" Header="shippedDate" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipVia" DataType="GridColumnDataType.Number" Header="shipVia" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="Freight" DataType="GridColumnDataType.Number" Header="freight" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipName" DataType="GridColumnDataType.String" Header="shipName" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipAddress.Street" DataType="GridColumnDataType.String" Header="shipAddress street" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipAddress.City" DataType="GridColumnDataType.String" Header="shipAddress city" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipAddress.Region" DataType="GridColumnDataType.String" Header="shipAddress region" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipAddress.PostalCode" DataType="GridColumnDataType.String" Header="shipAddress postalCode" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbColumn Field="ShipAddress.Country" DataType="GridColumnDataType.String" Header="shipAddress country" Filterable="false" Selectable="false"></IgbColumn>
+        <IgbActionStrip>
+            <IgbGridPinningActions></IgbGridPinningActions>
+            <IgbGridEditingActions AddRow="true"></IgbGridEditingActions>
+        </IgbActionStrip>
+    </IgbHierarchicalGrid>
+    <div class="column-layout demo-content">
+        <img src="assets/start-building.svg" class="image" />
+        <h5 class="h5">
+            Start building!
+        </h5>
+        <p class="typography__body-1 text">
+            Remove the "demo-content" container, and add your own content.
+        </p>
+    </div>
+</div>
+
+@code {
+    private List<OrdersType> _northwindOrders = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _northwindOrders = await NorthwindService.GetOrders();
+        await base.OnInitializedAsync();
+    }
+}
